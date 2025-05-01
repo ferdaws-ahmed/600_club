@@ -1,2 +1,2 @@
- var age = '22';
+ var age = 22;
  console.log(age);
