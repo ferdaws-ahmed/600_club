@@ -9,4 +9,4 @@ else if ( age < 12){
 }
 else{
     console.log('Full Pay korte hobe.');
-} 
+}        
