@@ -37,4 +37,47 @@ as কি-ওয়ার্ডটি আমাকে import করা কোন
 
             console.log(sum(5, 3));
     
-আমার কাছে abul.js নামে একটি ফাইল আছে, যেখানে add নামে একটি ফাংশন আছে। এখন, আমি যদি আমার app.js ফাইলে এই add ফাংশনটি ব্যবহার করতে চাই, কিন্তু আমার ফাইলে হয়তো ইতিমধ্যেই add নামে অন্য একটি ফাংশন আছে। সেক্ষেত্রে code error দিতে পারে। তাই আমি as ব্যবহার করে add ফাংশনটির নাম পরিবর্তন করে sum রেখেছি।আমি add as sum লিখেছি, যার মানে হলো abul.js ফাইল থেকে add ফাংশনটিকে sum নামে আমার appa.js ফাইলে ব্যবহার করব। 
+আমার কাছে abul.js নামে একটি ফাইল আছে, যেখানে add নামে একটি ফাংশন আছে। এখন, আমি যদি আমার app.js ফাইলে এই add ফাংশনটি ব্যবহার করতে চাই, কিন্তু আমার ফাইলে হয়তো ইতিমধ্যেই add নামে অন্য একটি ফাংশন আছে। সেক্ষেত্রে code error দিতে পারে। তাই আমি as ব্যবহার করে add ফাংশনটির নাম পরিবর্তন করে sum রেখেছি।আমি add as sum লিখেছি, যার মানে হলো abul.js ফাইল থেকে add ফাংশনটিকে sum নামে আমার appa.js ফাইলে ব্যবহার করব।
+
+
+
+# **4. নাম দিয়ে export আর default export এর মধ্যে পার্থক্য কী?**
+
+### **নাম দিয়ে Export:**
+যখন আমরা কোনো কিছুকে নাম দিয়ে export করি, তখন সেই ভেরিয়েবল বা ফাংশন একটি নির্দিষ্ট নাম দিয়েই ফাইল থেকে বের করে দিই। যেমন:
+      // math.js
+          export function add(a, b) {
+            return a + b;
+          }
+
+          export function subtract(a, b) {
+            return a - b;
+          }
+
+      // main.js
+          import { add, subtract } from './math.js';
+
+          console.log(add(5, 3));
+          console.log(subtract(5, 3));
+
+
+# **default export:**
+Default export এর ক্ষেত্রে আমরা কোনো নির্দিষ্ট নাম দিয়ে export করি না, বরং ফাইল থেকে একটি মাত্র জিনিসকে "ডিফল্ট" হিসেবে বের করে দিই। এটি মডিউলের মূল বা সবচেয়ে গুরুত্বপূর্ণ বিষয়টিকে নির্দেশ করে। একটি ফাইল থেকে শুধুমাত্র একটিই default export করা যায়। এর বেশি নয়। যেমন:
+      // greet.js
+          function greet(name) {
+            return "Hello, " + name + "!";
+          }
+
+          export default greet;
+
+      // main.js
+          import greetingFunction from './greet.js';
+
+          console.log(greetingFunction("Tuhin")); 
+
+
+
+
+# ** 5. এক ফাইল থেকে একাধিক default export কি সম্ভব ? কিভাবে সম্ভব ?**
+
+এক ফাইল থেকে একাধিক default export সম্ভব নয়। একটি module-এ কেবলমাত্র একটি default export থাকতে পারে। যদি একাধিক ফাংশন বা ভ্যালু এক্সপোর্ট করতে হয়, তাহলে named export বা mixed export (default + named) ব্যবহার করতে হয়।
